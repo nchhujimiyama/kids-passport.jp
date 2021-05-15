@@ -1,0 +1,151 @@
+#main_contents {
+    margin-bottom: 100px !important;
+}
+
+
+.post-custom .headline {
+    margin: 80px auto 45px;
+    font-size: 36px;
+    line-height: 1.6;
+    text-align: center;
+}
+.post-custom .headline span {
+    font-weight: 500;
+}
+.post-custom .headline .sub_title {
+    display: block;
+    font-weight: normal;
+    font-size: 16px;
+}
+@media screen and (max-width: 750px) {
+    .post-custom .headline {
+        margin: 60px auto 30px;
+        font-size: 22px;
+    }
+    .post-custom .headline span {
+        font-weight: 600;
+    }
+    .post-custom .headline .sub_title {
+        font-size: 12px;
+    }
+}
+
+.post-custom dl {
+    display: flex;
+    flex-wrap: wrap;
+}
+.post-custom dl dt,
+.post-custom dl dd {
+    padding: 15px 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+.post-custom dl dt {
+    width: 150px;
+    background: #efefef;
+    font-weight: bold;
+}
+.post-custom dl dd {
+    width: -webkit-calc(100% - 150px);
+    width: calc(100% - 150px);
+    color: rgba(0,0,0,.87);
+}
+@media screen and (max-width: 750px) {
+    .post-custom dl dt,
+    .post-custom dl dd {
+        width: 100%;
+    }
+    .post-custom dl dt {
+        border-top: none;
+        border-bottom: none;
+    }
+    .post-custom dl dt:first-of-type {
+        border-top: 1px solid #ccc;
+    }
+}
+@media screen and (min-width: 751px) {
+    .post-custom dl dt:nth-of-type(n + 2),
+    .post-custom dl dd:nth-of-type(n + 2) {
+        border-top: none;
+    }
+    .post-custom dl dd {
+        border-left: none;
+    }
+}
+
+.post-custom * + p {
+    margin-top: .5rem;
+}
+
+/* pr */
+.post-custom__pr div {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.post-custom__pr * + p {
+    margin-top: 1rem;
+}
+
+/* process */
+.post-custom__process {
+    counter-reset: process;
+}
+.post-custom__process li + li {
+    margin-top: 2rem;
+}
+.post-custom__process h4 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+.post-custom__process h4:before {
+    counter-increment: process;
+    content: counter(process) ".";
+    margin-right: .5rem;
+    font-size: 1.1em;
+}
+.post-custom__process p {
+    line-height: 1.6;
+}
+.post-custom__process p + p {
+    margin-top: 1rem;
+}
+@media screen and (max-width: 750px) {
+    .post-custom__process h4 {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* link */
+.post-custom__link {
+    display: flex;
+    justify-content: center;
+    margin: 60px auto 0;
+}
+.post-custom__link a {
+    display: block;
+    width: 48%;
+    max-width: 300px;
+    padding: 20px 0;
+    background: #000;
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+}
+.post-custom__link a + a {
+    margin-left: 4%;
+}
+@media screen and (max-width: 750px) {
+    .post-custom__link {
+        display: block;
+    }
+    .post-custom__link a {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .post-custom__link a + a {
+        margin: 1rem auto 0;
+    }
+}

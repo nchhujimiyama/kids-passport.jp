@@ -1,0 +1,337 @@
+#offers {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 90px 0 150px;
+}
+#offers .post_list {
+    display: flex;
+    flex-wrap: wrap;
+}
+#offers .post_list .item {
+    position: relative;
+    width: 33.3333%;
+}
+#offers .post_list .item:nth-last-of-type(-n + 3) {
+    border-bottom: 1px solid #ddd;
+}
+#offers .item .category a {
+    position: absolute;
+    top: 175px;
+    left: 30px;
+    z-index: 10;
+    display: inline-block;
+    font-size: 12px;
+    width: auto;
+    height: 35px;
+    padding: 0 10px;
+    line-height: 35px;
+    text-align: center;
+    background: #000;
+    color: #fff;
+}
+#offers .item .image_link {
+    display: block;
+    background: none;
+}
+#offers .item .image_wrap {
+    display: block;
+    width: 100%;
+    height: 210px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+#offers .item .image {
+    height: 100%;
+}
+#offers .title_area {
+    padding: 25px 30px;
+    background: #fff;
+    height: 160px;
+    border-right: 1px solid #ddd;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#offers .item:nth-of-type(3n - 2) .title_area {
+    border-left: 1px solid #ddd;
+}
+#offers .title_area .title {
+    max-height: 4.8em;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow: hidden;
+    visibility: visible;
+}
+#offers .title_area .date {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #999;
+    font-size: 12px;
+}
+@media screen and (max-width: 1251px) {
+    #offers {
+        width: auto;
+        padding: 90px 100px 150px;
+    }
+}
+@media screen and (max-width: 950px) {
+    #offers {
+        padding: 90px 50px 150px;
+    }
+}
+@media screen and (max-width: 750px) {
+    #offers {
+        padding: 60px 20px 90px;
+    }
+}
+
+
+#offers .page_navi span {
+    transition: all .2s ease;
+}
+#offers .page_navi span:hover {
+    background: #007a94;
+    border-color: #007a94;
+    color: #fff;
+}
+
+
+
+#search {
+    margin-bottom: 60px;
+}
+#search .inner {
+    margin-bottom: 30px;
+    padding: 40px 30px;
+    border: 1px solid #ccc;
+}
+#search .search_item {
+    display: flex;
+    align-items: center;
+}
+#search .search_item + .search_item {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px dashed #ccc;
+}
+#search .search_item h3 {
+    width: 160px;
+    font-size: 1rem;
+}
+#search .search_item h3 + * {
+    flex: 1;
+}
+#search .search_item ul li {
+    display: inline-block;
+    margin: 5px 20px 5px 0;
+}
+#search .search_item dl {
+    display: flex;
+}
+#search .search_item dd {
+    padding: 5px 0 0 20px;
+    line-height: 20px;
+}
+#search .search_item dd .tags span {
+    margin-right: .5em;
+}
+#search .search_item dd .tags span:after {
+    content: ',';
+}
+#search .search_item dd .tags span:last-of-type:after {
+    content: none;
+}
+
+#search select {
+    height: 44px;
+    width: 244px;
+    border: 2px solid rgba(211,211,211);
+    outline: none;
+}
+#search input[type="text"] {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 44px;
+    padding: 0 10px;
+    border: 2px solid rgba(211,211,211);
+}
+
+#search .term_btn {
+    display: inline-block;
+    width: 140px;
+    padding: 5px 10px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+}
+#search .term_btn span {
+    vertical-align: middle;
+}
+#search .term_btn svg {
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+#search .toggle_button {
+    margin-bottom: 30px;
+}
+#search .toggle_button a {
+    display: inline-block;
+    min-width: 220px;
+    height: 40px;
+    background: #444;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+}
+#search .toggle_button svg {
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+#search .toggle_button span {
+    vertical-align: middle;
+}
+#search .button {
+    text-align: center;
+}
+#search .button a {
+    font-size: 16px;
+    display: inline-block;
+    min-width: 270px;
+    height: 60px;
+    background: #000;
+    color: #fff;
+    line-height: 60px;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+#search .button a:hover {
+    background: #007a94;
+}
+@media screen and (max-width: 1001px) {
+    #search .button a {
+        font-size: 14px;
+        min-width: 200px;
+        height: 50px;
+        line-height: 50px;
+    }
+}
+
+
+#sort {
+    margin-bottom: 30px;
+}
+#sort .switch-list__order {
+    display: flex;
+}
+#sort .switch-list__order li {
+    flex: 1;
+    padding: 20px 0;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+#sort .switch-list__order li.button {
+    cursor: pointer;
+}
+#sort .switch-list__order li + li {
+    border-left: none;
+}
+#sort .switch-list__order li:first-of-type {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+#sort .switch-list__order.new li.new,
+#sort .switch-list__order.old li.old,
+#sort .switch-list__order.views li.views {
+    background: #007a94;
+    border-color: #007a94;
+    color: #fff;
+}
+
+
+/* modal */
+#overlay {
+    z-index:1000;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+#overlay.active {
+    display: flex;
+}
+#overlay .content {
+    z-index:2;
+    position: relative;
+    width:90%;
+    max-width: 767px;
+    padding: 2em;
+    background:#fff;
+}
+#overlay .close_modal {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    padding: 10px 15px;
+    background: #000;
+    color: #fff;
+}
+#overlay .close_modal svg {
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+#overlay .close_modal span {
+    vertical-align: middle;
+}
+#overlay h2 {
+    margin-bottom: 1rem;
+    color: rgba(0,0,0,.87);
+    font-size: 1.15rem;
+}
+#overlay .flexbox {
+    display: flex;
+    border-bottom: 1px dashed #999;
+}
+#overlay .flexbox:first-of-type {
+    border-top: 1px dashed #999;
+}
+#overlay .flexbox h4 {
+    width: 25%;
+    max-width: 180px;
+    padding: 20px;
+    background: #efefef;
+}
+#overlay .flexbox > ul,
+#overlay .flexbox > div {
+    flex: 1;
+    padding: 20px;
+}
+#overlay li {
+    display: inline-block;
+    margin: 5px 20px 5px 0;
+}
+#overlay .g_child {
+    display: block;
+}
+#overlay .g_child + .g_child {
+    margin-top: 30px;
+}
+#overlay li ul {
+    margin-top: 10px;
+}

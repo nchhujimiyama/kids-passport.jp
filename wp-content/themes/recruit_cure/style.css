@@ -1,0 +1,195 @@
+/*
+Theme Name:RECRUIT CURE
+Template:cure_tcd082
+Version:1.1
+*/
+
+
+#bread_crumb {
+    width: 1200px;
+}
+
+
+
+body.single-menu #bread_crumb, body.single-diary #bread_crumb {
+    width: 1000px;
+    margin: 0 auto 50px;
+}
+@media screen and (max-width: 1251px) {
+    body.single-menu #bread_crumb, body.single-diary #bread_crumb {
+        width: auto;
+        border-top: 1px solid #ddd;
+    }
+}
+@media screen and (max-width: 750px) {
+    body.single-menu #bread_crumb, body.single-diary #bread_crumb {
+        margin-bottom: -1px;
+    }
+}
+
+
+
+
+/* footer cta */
+.p-footer-cta { position: fixed; left:0; bottom: 0; width: 100%; z-index: 9999; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0); -webkit-transition: -webkit-transform 0.35s; transition: transform 0.35s; }
+.p-footer-cta.is-active { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+
+.p-footer-cta__inner { background: #000; box-sizing: border-box; border-top: 1px solid #333; height: 120px; padding: 0 75px 0 40px; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; -ms-grid-row-align: center; align-items: center; position: relative; }
+
+.p-footer-cta__catch { color: #fff; font-size: 21px; line-height: 1.5; margin-bottom: 5px; }
+
+.p-footer-cta__desc { color: #999; font-size: 14px; line-height: 2; }
+
+.p-footer-cta__btn { color: #fff; font-size: 16px; display: inline-block; min-width: 300px; height: 55px; line-height: 55px; padding: 0 40px 0 10px; text-align: center; position: relative; box-sizing: border-box; }
+.p-footer-cta__btn:after { content: "\e910"; font-family: "design_plus"; position: absolute; right: 11px; }
+
+.p-footer-cta__close { cursor: pointer; border-radius: 50%; position: absolute; top: 0; bottom: 0; right: 25px; width: 40px; height: 40px; margin: auto; text-align: center; transition: background 0.5s; }
+.p-footer-cta__close:hover { background: #444; }
+.p-footer-cta__close::before { color: #fff; content: "\e91a"; font-family: "design_plus"; line-height: 40px; height: 40px; }
+
+@media only screen and (max-width: 1199px) {
+    .p-footer-cta__catch { margin-bottom: 0; }
+    .p-footer-cta__desc { display: none; }
+    .p-footer-cta__btn { margin-left: 30px; }
+}
+@media only screen and (max-width: 991px) {
+    .p-footer-cta__catch { font-size: 16px; }
+}
+@media only screen and (max-width: 767px) {
+    .p-footer-cta__inner { height:60px; padding:0 20px; }
+    .p-footer-cta__catch { font-size: 11px; line-height: 1.6; margin-bottom: 0; }
+    .p-footer-cta__desc { display: none; }
+    .p-footer-cta__btn { position:absolute; top:0px; right:20px; background:none !important; height:60px; line-height:60px; width:calc(100% - 20px); min-width:inherit; text-indent:-200%; overflow:hidden; padding:0; }
+    .p-footer-cta__close { border-radius: 0; top: 0; right: 0; width: 35px; height: 100%; background: #444; text-align: center; }
+    .p-footer-cta__close::before { height: 100%; line-height: 60px; }
+}
+
+
+
+/* relation recruit */
+#single_relation_recruit {
+    width: 1000px;
+    margin: 80px auto;
+    box-sizing: border-box;
+}
+#single_relation_recruit h2 {
+    margin: 0 auto 60px;
+    font-size: 38px;
+    text-align: center;
+}
+#single_relation_recruit .inner {
+    display: flex;
+}
+#single_relation_recruit .item {
+    width: -webkit-calc(33.3333% - 20px);
+    width: calc(33.3333% - 20px);
+    background: #fff;
+    border: 1px solid #ddd;
+}
+#single_relation_recruit .item + .item {
+    margin-left: 30px;
+}
+#single_relation_recruit .thumb {
+    position: relative;
+    overflow: hidden;
+}
+#single_relation_recruit .thumb .image {
+    padding-top: 60%;
+    transition: all .5s;
+}
+#single_relation_recruit .thumb a:hover .image {
+    transform: scale(1.2);
+}
+#single_relation_recruit .thumb .term {
+    display: block;
+    padding: 0 10px;
+    background: #666;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 22px;
+    cursor: pointer;
+    transition: all .3s;
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    transition: all .3s;
+}
+#single_relation_recruit .thumb .term:hover {
+    opacity: .6;
+}
+#single_relation_recruit .info {
+    padding: 16px;
+}
+#single_relation_recruit .info h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+#single_relation_recruit .info .offer_comment {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 10px 0;
+    margin-bottom: 5px;
+}
+#single_relation_recruit .info .terms span {
+    display: inline-block;
+    padding: 0 10px;
+    margin: 0 5px 5px 0;
+    background: #000;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 11px;
+    line-height: 22px;
+    cursor: pointer;
+    transition: all .3s;
+}
+#single_relation_recruit .info .terms span.sub {
+    background: #999;
+}
+#single_relation_recruit .info .terms span:hover {
+    opacity: .6;
+}
+@media screen and (max-width: 1251px) {
+    #single_relation_recruit {
+        width: 100%;
+        padding: 0 100px;
+    }
+    #single_relation_recruit .item {
+        width: -webkit-calc(33.3333% - 10.6666px);
+        width: calc(33.3333% - 10.6666px);
+    }
+    #single_relation_recruit .item + .item {
+        margin-left: 16px;
+    }
+}
+@media screen and (max-width: 950px) {
+    #single_relation_recruit {
+        padding: 0 50px;
+    }
+}
+@media screen and (max-width: 750px) {
+    #single_relation_recruit {
+        margin: 48px auto;
+        padding: 0 20px;
+    }
+    #single_relation_recruit h2 {
+        margin-bottom: 32px;
+        font-size: 28px;
+    }
+    #single_relation_recruit .inner {
+        display: block;
+    }
+    #single_relation_recruit .item {
+        width: 100%;
+    }
+    #single_relation_recruit .item + .item {
+        margin: 16px auto 0;
+    }
+    #single_relation_recruit .thumb .image {
+        height: 56vw;
+        max-height: 300px;
+        padding-top: 0;
+    }
+}
