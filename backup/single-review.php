@@ -27,25 +27,22 @@ $side_content_layout = get_post_meta($post->ID, 'side_content_layout', true) ?  
           }
           ?>
           <div id="post_title_area"<?php if( (!has_post_thumbnail()) || (!$options['single_review_show_image']) ) { echo ' class="no_image"'; }; ?>>
-            <div class="image_area">
-              <?php if($options['single_review_show_image'] && has_post_thumbnail()) { ?>
-                <img src="<?= esc_attr($image[0]); ?>" alt="<?= get_the_title(); ?>">
-                <?php /* <div class="image" style="background:url(<?php echo esc_attr($image[0]); ?>) no-repeat center center; background-size:cover;"></div> */ ?>
-              <?php };
+            <?php if($options['single_review_show_image'] && has_post_thumbnail()) { ?>
+              <div class="image" style="background:url(<?php echo esc_attr($image[0]); ?>) no-repeat center center; background-size:cover;"></div>
+            <?php };
 
-              $blog_category = wp_get_post_terms( $post->ID, 'review_category' , array( 'orderby' => 'term_order' ));
-              if ( $blog_category && ! is_wp_error($blog_category) ) {
-                foreach ( $blog_category as $blog_cat ) :
-                  $blog_cat_name = $blog_cat->name;
-                  $blog_cat_id = $blog_cat->term_id;
-                  break;
-                endforeach;
-              };
+            $blog_category = wp_get_post_terms( $post->ID, 'review_category' , array( 'orderby' => 'term_order' ));
+            if ( $blog_category && ! is_wp_error($blog_category) ) {
+              foreach ( $blog_category as $blog_cat ) :
+                $blog_cat_name = $blog_cat->name;
+                $blog_cat_id = $blog_cat->term_id;
+                break;
+              endforeach;
+            };
 
-              if( $blog_cat_id && $blog_cat_name ) { ?>
-                <p class="category cat_id_<?php echo esc_attr($blog_cat_id); ?>"><a href="<?php echo esc_url(get_term_link($blog_cat_id,'review_category')); ?>"><?php echo esc_html($blog_cat_name); ?></a></p>
-              <?php } ?>
-            </div>
+            if( $blog_cat_id && $blog_cat_name ) { ?>
+              <p class="category cat_id_<?php echo esc_attr($blog_cat_id); ?>"><a href="<?php echo esc_url(get_term_link($blog_cat_id,'review_category')); ?>"><?php echo esc_html($blog_cat_name); ?></a></p>
+            <?php } ?>
 
             <h1 class="title rich_font_<?php echo esc_attr($options['single_review_title_font_type']); ?> entry-title"><?php the_title(); ?></h1>
             <?php if ( $options['single_review_show_date'] ){ ?>

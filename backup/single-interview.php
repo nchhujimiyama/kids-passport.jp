@@ -17,7 +17,7 @@ $side_content_layout = get_post_meta($post->ID, 'side_content_layout', true) ?  
 
           // title_area ------------------------------------------------------------------------------------------------------------------------
           $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size3' );
-          if( $options['single_review_layout'] == 'type3'){
+          if( $options['single_interview_layout'] == 'type3'){
             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size5' );
           }
           if( $side_content_layout == 'type3' ){
@@ -26,43 +26,40 @@ $side_content_layout = get_post_meta($post->ID, 'side_content_layout', true) ?  
             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size3' );
           }
           ?>
-          <div id="post_title_area"<?php if( (!has_post_thumbnail()) || (!$options['single_review_show_image']) ) { echo ' class="no_image"'; }; ?>>
-            <div class="image_area">
-              <?php if($options['single_review_show_image'] && has_post_thumbnail()) { ?>
-                <img src="<?= esc_attr($image[0]); ?>" alt="<?= get_the_title(); ?>">
-                <?php /* <div class="image" style="background:url(<?php echo esc_attr($image[0]); ?>) no-repeat center center; background-size:cover;"></div> */ ?>
-              <?php };
+          <div id="post_title_area"<?php if( (!has_post_thumbnail()) || (!$options['single_interview_show_image']) ) { echo ' class="no_image"'; }; ?>>
+            <?php if($options['single_interview_show_image'] && has_post_thumbnail()) { ?>
+              <div class="image" style="background:url(<?php echo esc_attr($image[0]); ?>) no-repeat center center; background-size:cover;"></div>
+            <?php };
 
-              $blog_category = wp_get_post_terms( $post->ID, 'review_category' , array( 'orderby' => 'term_order' ));
-              if ( $blog_category && ! is_wp_error($blog_category) ) {
-                foreach ( $blog_category as $blog_cat ) :
-                  $blog_cat_name = $blog_cat->name;
-                  $blog_cat_id = $blog_cat->term_id;
-                  break;
-                endforeach;
-              };
+            $blog_category = wp_get_post_terms( $post->ID, 'division' , array( 'orderby' => 'term_order' ));
+            if ( $blog_category && ! is_wp_error($blog_category) ) {
+              foreach ( $blog_category as $blog_cat ) :
+                $blog_cat_name = $blog_cat->name;
+                $blog_cat_id = $blog_cat->term_id;
+                break;
+              endforeach;
+            };
 
-              if( $blog_cat_id && $blog_cat_name ) { ?>
-                <p class="category cat_id_<?php echo esc_attr($blog_cat_id); ?>"><a href="<?php echo esc_url(get_term_link($blog_cat_id,'review_category')); ?>"><?php echo esc_html($blog_cat_name); ?></a></p>
-              <?php } ?>
-            </div>
+            if( $blog_cat_id && $blog_cat_name ) { ?>
+              <p class="category cat_id_<?php echo esc_attr($blog_cat_id); ?>"><a href="<?php echo esc_url(get_term_link($blog_cat_id,'interview_category')); ?>"><?php echo esc_html($blog_cat_name); ?></a></p>
+            <?php } ?>
 
-            <h1 class="title rich_font_<?php echo esc_attr($options['single_review_title_font_type']); ?> entry-title"><?php the_title(); ?></h1>
-            <?php if ( $options['single_review_show_date'] ){ ?>
+            <h1 class="title rich_font_<?php echo esc_attr($options['single_interview_title_font_type']); ?> entry-title"><?php the_title(); ?></h1>
+            <?php if ( $options['single_interview_show_date'] ){ ?>
               <p class="date"><time class="entry-date updated" datetime="<?php the_modified_time('c'); ?>"><?php the_time('Y.m.d'); ?></time></p>
             <?php }; ?>
           </div>
 
           <?php
           // sns button top ------------------------------------------------------------------------------------------------------------------------
-          if($options['single_review_show_sns_top']) { ?>
+          if($options['single_interview_show_sns_top']) { ?>
             <div class="single_share clearfix" id="single_share_top">
               <?php get_template_part('template-parts/sns-btn-top'); ?>
             </div>
           <?php };
 
           // copy title&url button ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          if($options['single_review_show_copy_top']) { ?>
+          if($options['single_interview_show_copy_top']) { ?>
             <div class="single_copy_title_url" id="single_copy_title_url_top">
               <button class="single_copy_title_url_btn" data-clipboard-text="<?php echo esc_attr( strip_tags( get_the_title() ) . ' ' . get_permalink() ); ?>" data-clipboard-copied="<?php echo esc_attr( __( 'COPIED Title&amp;URL', 'tcd-w' ) ); ?>"><?php _e( 'COPY Title&amp;URL', 'tcd-w' ); ?></button>
             </div>
@@ -142,31 +139,31 @@ $side_content_layout = get_post_meta($post->ID, 'side_content_layout', true) ?  
         <?php };
 
         // sns button ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if($options['single_review_show_sns_btm']) { ?>
+        if($options['single_interview_show_sns_btm']) { ?>
           <div class="single_share clearfix" id="single_share_bottom">
             <?php get_template_part('template-parts/sns-btn-btm'); ?>
           </div>
         <?php };
 
         // copy title&url button ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if($options['single_review_show_copy_btm']) { ?>
+        if($options['single_interview_show_copy_btm']) { ?>
           <div class="single_copy_title_url" id="single_copy_title_url_bottom">
             <button class="single_copy_title_url_btn" data-clipboard-text="<?php echo esc_attr( strip_tags( get_the_title() ) . ' ' . get_permalink() ); ?>" data-clipboard-copied="<?php echo esc_attr( __( 'COPIED Title&amp;URL', 'tcd-w' ) ); ?>"><?php _e( 'COPY Title&amp;URL', 'tcd-w' ); ?></button>
           </div>
         <?php };
 
         // meta ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if ($options['single_review_show_meta_box']) { ?>
+        if ($options['single_interview_show_meta_box']) { ?>
           <ul id="post_meta_bottom" class="clearfix">
-            <?php if ($options['single_review_show_meta_author']) : ?><li class="post_author"><?php _e("Author","tcd-w"); ?>: <?php if (function_exists('coauthors_posts_links')) { coauthors_posts_links(', ',', ','','',true); } else { the_author_posts_link(); }; ?></li><?php endif; ?>
-            <?php if ($options['single_review_show_meta_category']){ ?><li class="post_category"><?php the_taxonomies(', '); ?></li><?php }; ?>
-            <?php if ($options['single_review_show_meta_tag']): ?><?php the_tags('<li class="post_tag">',', ','</li>'); ?><?php endif; ?>
-            <?php if ($options['single_review_show_meta_comment']) : if (comments_open()){ ?><li class="post_comment"><?php _e("Comment","tcd-w"); ?>: <a href="#comments"><?php comments_number( '0','1','%' ); ?></a></li><?php }; endif; ?>
+            <?php if ($options['single_interview_show_meta_author']) : ?><li class="post_author"><?php _e("Author","tcd-w"); ?>: <?php if (function_exists('coauthors_posts_links')) { coauthors_posts_links(', ',', ','','',true); } else { the_author_posts_link(); }; ?></li><?php endif; ?>
+            <?php if ($options['single_interview_show_meta_category']){ ?><li class="post_category"><?php the_taxonomies(', '); ?></li><?php }; ?>
+            <?php if ($options['single_interview_show_meta_tag']): ?><?php the_tags('<li class="post_tag">',', ','</li>'); ?><?php endif; ?>
+            <?php if ($options['single_interview_show_meta_comment']) : if (comments_open()){ ?><li class="post_comment"><?php _e("Comment","tcd-w"); ?>: <a href="#comments"><?php comments_number( '0','1','%' ); ?></a></li><?php }; endif; ?>
           </ul>
         <?php };
 
         // page nav ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if ($options['single_review_show_nav']) : ?>
+        if ($options['single_interview_show_nav']) : ?>
           <div id="next_prev_post" class="clearfix">
             <?php next_prev_post_link(); ?>
           </div>
@@ -211,7 +208,7 @@ $side_content_layout = get_post_meta($post->ID, 'side_content_layout', true) ?  
     <?php
     // related post ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     if ($options['show_related_post']){
-      $categories = get_the_terms($post->ID, 'review_category');
+      $categories = get_the_terms($post->ID, 'division');
       if ($categories) {
         $post_num = $options['related_post_num'];
         if(is_mobile()){
@@ -239,7 +236,7 @@ $side_content_layout = get_post_meta($post->ID, 'side_content_layout', true) ?  
                   <?php
                   if ( $options['related_post_show_category'] ){
                     if ( $blog_category && ! is_wp_error($blog_category) ) { ?>
-                      <p class="category cat_id_<?php echo esc_attr($blog_cat_id); ?>"><a href="<?php echo esc_url(get_term_link($blog_cat_id,'review_category')); ?>"><?php echo esc_html($blog_cat_name); ?></a></p>
+                      <p class="category cat_id_<?php echo esc_attr($blog_cat_id); ?>"><a href="<?php echo esc_url(get_term_link($blog_cat_id,'division')); ?>"><?php echo esc_html($blog_cat_name); ?></a></p>
                   <?php }; }; ?>
                   <a class="link animate_background" href="<?php the_permalink(); ?>">
                     <div class="image_wrap">
@@ -261,13 +258,13 @@ $side_content_layout = get_post_meta($post->ID, 'side_content_layout', true) ?  
     };
 
     // comment ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    if ($options['single_review_show_comment'] || $options['single_review_show_trackback']) { comments_template('', true); }; ?>
+    if ($options['single_interview_show_comment'] || $options['single_interview_show_trackback']) { comments_template('', true); }; ?>
 
   </div><!-- END #main_col -->
 
   <?php
   if($side_content_layout == 'type0'){
-    if($options['single_review_layout'] != 'type3'){
+    if($options['single_interview_layout'] != 'type3'){
       get_sidebar();
     };
   } else {

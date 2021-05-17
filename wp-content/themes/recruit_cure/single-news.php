@@ -15,34 +15,34 @@
 
    <?php if($page == '1') { // ***** only show on first page ***** ?>
 
-   <?php
-        // title_area ------------------------------------------------------------------------------------------------------------------------
-        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size3' );
-        if( $options['single_blog_layout'] == 'type3'){
-          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size5' );
-        }
-        if( $side_content_layout == 'type3' ){
-          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size5' );
-        } elseif( $side_content_layout == 'type1' || $side_content_layout == 'type2' ){
-          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size3' );
-        }
-   ?>
-   <div id="post_title_area">
-      <div class="image_area">
-        <?php if($options['single_menu_show_image'] && has_post_thumbnail()) { ?>
+    <?php
+    // title_area ------------------------------------------------------------------------------------------------------------------------
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size3' );
+    if( $options['single_blog_layout'] == 'type3'){
+      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size5' );
+    }
+    if( $side_content_layout == 'type3' ){
+      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size5' );
+    } elseif( $side_content_layout == 'type1' || $side_content_layout == 'type2' ){
+      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size3' );
+    }
+    ?>
+    <div id="post_title_area">
+      <?php if($options['single_news_show_image'] && has_post_thumbnail()) { ?>
+        <div class="image_area">
           <img src="<?= esc_attr($image[0]); ?>" alt="<?= get_the_title(); ?>">
           <?php /* <div class="image" style="background:url(<?php echo esc_attr($image[0]); ?>) no-repeat center center; background-size:cover;"></div> */ ?>
-        <?php }; ?>
-      </div>
-    <h1 class="title rich_font_<?php echo esc_attr($options['single_menu_title_font_type']); ?> entry-title"><?php the_title(); ?></h1>
-    <?php if ( $options['single_menu_show_date'] ){ ?>
-    <p class="date"><time class="entry-date updated" datetime="<?php the_modified_time('c'); ?>"><?php the_time('Y.m.d'); ?></time></p>
-    <?php }; ?>
-   </div>
+        </div>
+      <?php }; ?>
+      <h1 class="title rich_font_<?php echo esc_attr($options['single_news_title_font_type']); ?> entry-title"><?php the_title(); ?></h1>
+      <?php if ( $options['single_news_show_date'] ){ ?>
+        <p class="date"><time class="entry-date updated" datetime="<?php the_modified_time('c'); ?>"><?php the_time('Y.m.d'); ?></time></p>
+      <?php }; ?>
+    </div>
 
    <?php
         // sns button top ------------------------------------------------------------------------------------------------------------------------
-        if($options['single_menu_show_sns_top']) {
+        if($options['single_news_show_sns_top']) {
    ?>
    <div class="single_share clearfix" id="single_share_top">
     <?php get_template_part('template-parts/sns-btn-top'); ?>
@@ -51,7 +51,7 @@
 
    <?php
         // copy title&url button ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if($options['single_menu_show_copy_top']) {
+        if($options['single_news_show_copy_top']) {
    ?>
    <div class="single_copy_title_url" id="single_copy_title_url_top">
     <button class="single_copy_title_url_btn" data-clipboard-text="<?php echo esc_attr( strip_tags( get_the_title() ) . ' ' . get_permalink() ); ?>" data-clipboard-copied="<?php echo esc_attr( __( 'COPIED Title&amp;URL', 'tcd-w' ) ); ?>"><?php _e( 'COPY Title&amp;URL', 'tcd-w' ); ?></button>
@@ -61,16 +61,16 @@
    <?php
         // banner top ------------------------------------------------------------------------------------------------------------------------
         if(!is_mobile()) {
-          if( $options['menu_single_top_ad_code'] || $options['menu_single_top_ad_image'] ) {
+          if( $options['news_single_top_ad_code'] || $options['news_single_top_ad_image'] ) {
    ?>
    <div id="single_banner_top" class="single_banner">
     <?php
-         if ($options['menu_single_top_ad_code']) {
-           echo $options['menu_single_top_ad_code'];
+         if ($options['news_single_top_ad_code']) {
+           echo $options['news_single_top_ad_code'];
          } else {
-           $banner_image = wp_get_attachment_image_src( $options['menu_single_top_ad_image'], 'full' );
+           $banner_image = wp_get_attachment_image_src( $options['news_single_top_ad_image'], 'full' );
     ?>
-    <a href="<?php echo esc_url( $options['menu_single_top_ad_url'] ); ?>" target="_blank"><img class="single_banner_image" src="<?php echo esc_attr($banner_image[0]); ?>" alt="" title="" /></a>
+    <a href="<?php echo esc_url( $options['news_single_top_ad_url'] ); ?>" target="_blank"><img class="single_banner_image" src="<?php echo esc_attr($banner_image[0]); ?>" alt="" title="" /></a>
     <?php }; ?>
    </div><!-- END #single_banner_top -->
    <?php
@@ -111,7 +111,7 @@
 
    <?php
         // sns button ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if($options['single_menu_show_sns_btm']) {
+        if($options['single_news_show_sns_btm']) {
    ?>
    <div class="single_share clearfix" id="single_share_bottom">
     <?php get_template_part('template-parts/sns-btn-btm'); ?>
@@ -120,7 +120,7 @@
 
    <?php
         // copy title&url button ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if($options['single_menu_show_copy_btm']) {
+        if($options['single_news_show_copy_btm']) {
    ?>
    <div class="single_copy_title_url" id="single_copy_title_url_bottom">
     <button class="single_copy_title_url_btn" data-clipboard-text="<?php echo esc_attr( strip_tags( get_the_title() ) . ' ' . get_permalink() ); ?>" data-clipboard-copied="<?php echo esc_attr( __( 'COPIED Title&amp;URL', 'tcd-w' ) ); ?>"><?php _e( 'COPY Title&amp;URL', 'tcd-w' ); ?></button>
@@ -129,7 +129,7 @@
 
    <?php
         // page nav ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if ($options['single_menu_show_nav']) :
+        if ($options['single_news_show_nav']) :
    ?>
    <div id="next_prev_post" class="clearfix">
     <?php next_prev_post_link(); ?>
@@ -141,16 +141,16 @@
    <?php
         // banner bottom ------------------------------------------------------------------------------------------------------------------------
         if(!is_mobile()) {
-          if( $options['menu_single_bottom_ad_code'] || $options['menu_single_bottom_ad_image'] ) {
+          if( $options['news_single_bottom_ad_code'] || $options['news_single_bottom_ad_image'] ) {
    ?>
    <div id="single_banner_bottom" class="single_banner">
     <?php
-         if ($options['menu_single_bottom_ad_code']) {
-           echo $options['menu_single_bottom_ad_code'];
+         if ($options['news_single_bottom_ad_code']) {
+           echo $options['news_single_bottom_ad_code'];
          } else {
-           $banner_image = wp_get_attachment_image_src( $options['menu_single_bottom_ad_image'], 'full' );
+           $banner_image = wp_get_attachment_image_src( $options['news_single_bottom_ad_image'], 'full' );
     ?>
-    <a href="<?php echo esc_url( $options['menu_single_bottom_ad_url'] ); ?>" target="_blank"><img class="single_banner_image" src="<?php echo esc_attr($banner_image[0]); ?>" alt="" title="" /></a>
+    <a href="<?php echo esc_url( $options['news_single_bottom_ad_url'] ); ?>" target="_blank"><img class="single_banner_image" src="<?php echo esc_attr($banner_image[0]); ?>" alt="" title="" /></a>
     <?php }; ?>
    </div><!-- END #single_banner_bottom -->
    <?php
@@ -161,16 +161,16 @@
    <?php
         // mobile banner ------------------------------------------------------------------------------------------------------------------------
         if(is_mobile()) {
-          if( $options['menu_single_mobile_ad_code'] || $options['menu_single_mobile_ad_image'] ) {
+          if( $options['news_single_mobile_ad_code'] || $options['news_single_mobile_ad_image'] ) {
    ?>
    <div id="single_banner_mobile" class="single_banner">
     <?php
-         if ($options['menu_single_mobile_ad_code']) {
-           echo $options['menu_single_mobile_ad_code'];
+         if ($options['news_single_mobile_ad_code']) {
+           echo $options['news_single_mobile_ad_code'];
          } else {
-           $banner_image = wp_get_attachment_image_src( $options['menu_single_mobile_ad_image'], 'full' );
+           $banner_image = wp_get_attachment_image_src( $options['news_single_mobile_ad_image'], 'full' );
     ?>
-    <a href="<?php echo esc_url( $options['menu_single_mobile_ad_url'] ); ?>" target="_blank"><img class="single_banner_image" src="<?php echo esc_attr($banner_image[0]); ?>" alt="" title="" /></a>
+    <a href="<?php echo esc_url( $options['news_single_mobile_ad_url'] ); ?>" target="_blank"><img class="single_banner_image" src="<?php echo esc_attr($banner_image[0]); ?>" alt="" title="" /></a>
     <?php }; ?>
    </div><!-- END #single_banner_mobile -->
    <?php
@@ -182,18 +182,17 @@
 
   <?php
        // recent post ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-       if ($options['show_recent_menu']){
-         $post_num = $options['recent_menu_num'];
+       if ($options['show_recent_news']){
+         $post_num = $options['recent_news_num'];
          if(is_mobile()){
-           $post_num = $options['recent_menu_num_mobile'];
+           $post_num = $options['recent_news_num_mobile'];
          }
-         $args = array( 'post_type' => 'menu', 'posts_per_page' => $post_num );
+         $args = array( 'post_type' => 'news', 'posts_per_page' => $post_num );
          $related_post_list = new wp_query($args);
          if($related_post_list->have_posts()):
   ?>
   <div id="recent_news">
-    <?php $label = $options['recent_menu_headline'] ? $options['recent_menu_headline'] : '新着のメニュー'; ?>
-   <h3 class="headline rich_font"><span><?= $label; ?></span></h3>
+   <h3 class="headline rich_font"><span><?php echo wp_kses_post(nl2br($options['recent_news_headline'])); ?></span></h3>
    <div id="news_list" class="clearfix">
     <?php
          while( $related_post_list->have_posts() ) : $related_post_list->the_post();
@@ -221,10 +220,9 @@
     </article>
     <?php endwhile; wp_reset_query(); ?>
    </div><!-- END .post_list -->
-   <?php if($options['show_recent_menu_button']){ ?>
+   <?php if($options['show_recent_news_button']){ ?>
    <div class="link_button">
-   <?php $label = $options['menu_label'] ? $options['recent_menu_button_label'] : 'メニュー一覧'; ?>
-    <a href="<?php echo esc_url(get_post_type_archive_link('menu')); ?>"><?= $label; ?></a>
+    <a href="<?php echo esc_url(get_post_type_archive_link('news')); ?>"><?php echo esc_html($options['recent_news_button_label']); ?></a>
    </div>
    <?php }; ?>
   </div><!-- END #related_post -->
@@ -237,7 +235,7 @@
 
   <?php
        if($side_content_layout == 'type0'){
-         if($options['single_menu_layout'] != 'type3'){
+         if($options['single_news_layout'] != 'type3'){
            get_sidebar();
           };
        } else {

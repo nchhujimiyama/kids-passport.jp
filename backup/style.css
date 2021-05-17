@@ -29,32 +29,6 @@ body.single-menu #bread_crumb, body.single-diary #bread_crumb {
 
 
 
-/* */
-#post_title_area .image_area {
-    margin: 0 0 47px;
-    position: relative;
-}
-#post_title_area .image_area img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-#post_title_area .category a {
-    top: auto !important;
-    bottom: 0;
-}
-@media screen and (max-width: 750px) {
-    #post_title_area .image_area {
-        margin-bottom: 35px;
-    }
-}
-@media screen and (max-width: 550px) {
-    #post_title_area .image_area {
-        margin-bottom: 25px;
-    }
-}
-
-
 
 /* footer cta */
 .p-footer-cta { position: fixed; left:0; bottom: 0; width: 100%; z-index: 9999; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0); -webkit-transition: -webkit-transform 0.35s; transition: transform 0.35s; }

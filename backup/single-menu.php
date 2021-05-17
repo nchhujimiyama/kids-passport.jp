@@ -28,12 +28,9 @@
         }
    ?>
    <div id="post_title_area">
-      <div class="image_area">
-        <?php if($options['single_menu_show_image'] && has_post_thumbnail()) { ?>
-          <img src="<?= esc_attr($image[0]); ?>" alt="<?= get_the_title(); ?>">
-          <?php /* <div class="image" style="background:url(<?php echo esc_attr($image[0]); ?>) no-repeat center center; background-size:cover;"></div> */ ?>
-        <?php }; ?>
-      </div>
+    <?php if($options['single_menu_show_image'] && has_post_thumbnail()) { ?>
+    <div class="image" style="background:url(<?php echo esc_attr($image[0]); ?>) no-repeat center center; background-size:cover;"></div>
+    <?php }; ?>
     <h1 class="title rich_font_<?php echo esc_attr($options['single_menu_title_font_type']); ?> entry-title"><?php the_title(); ?></h1>
     <?php if ( $options['single_menu_show_date'] ){ ?>
     <p class="date"><time class="entry-date updated" datetime="<?php the_modified_time('c'); ?>"><?php the_time('Y.m.d'); ?></time></p>
