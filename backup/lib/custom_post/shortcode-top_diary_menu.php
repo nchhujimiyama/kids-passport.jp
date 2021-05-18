@@ -47,7 +47,7 @@ function get_diary_menu_posts($atts) {
 
     $args = array(
         'post_type' => 'menu',
-        'posts_per_page' => 2,
+        'posts_per_page' => 3,
         'post_status' => 'publish'
     );
     $menu = '';
@@ -68,7 +68,7 @@ function get_diary_menu_posts($atts) {
 
             $menu .= '<article>
                 <a href="' . get_the_permalink() . '">
-                    <div class="thumb"><img class="image" src="' . $image . '"></div>
+                    <div class="thumb"><div class="image" style="background-image: url(' . $image . ');"></div></div>
                     <div class="info">
                         <h3>' . $title . '</h3>
                         <time>' . get_the_modified_date('Y.m.d') . '</time>
@@ -88,7 +88,7 @@ function get_diary_menu_posts($atts) {
             <div class="list">' . $diary . '</div>
             <div class="link"><a href="' . get_post_type_archive_link('diary') . '">' . $diary_catch . '一覧</a></div>
         </div>
-        <div class="column menu">
+        <div class="column">
             <h3 class="cb_headline rich_font_type2">' . $menu_name . '</h3>
             <h4 class="cb_catch rich_font_type3">' . $menu_catch . '</h4>
             <div class="list">' . $menu . '</div>
@@ -200,34 +200,6 @@ function get_diary_menu_posts($atts) {
         #top_diary_menu article .info {
             border-left: 1px solid #ddd;
             padding: 10px 20px 16px;
-        }
-    }
-
-    @media screen and (min-width: 1025px) {
-        #top_diary_menu .menu .list {
-            display: flex;
-        }
-        #top_diary_menu .menu article {
-            flex: 1;
-        }
-        #top_diary_menu .menu article:nth-of-type(2n) {
-            margin-left: 16px;
-        }
-        #top_diary_menu .menu article a {
-            flex-direction: column;
-        }
-        #top_diary_menu .menu article .thumb {
-            width: 100%;
-        }
-        #top_diary_menu .menu article .thumb .image {
-            display: block;
-            width: 100%;
-            height: auto;
-            background: none;
-        }
-        #top_diary_menu .menu article .info {
-            padding: 16px;
-            border-left: 1px solid #ddd;
         }
     }
     </style>';
