@@ -54,7 +54,7 @@
 
   <?php if ( have_posts() ) : ?>
 
-  <div id="news_list" class="clearfix">
+  <div id="news_list" class="clearfix menu">
    <?php
         while ( have_posts() ) : the_post();
           if(has_post_thumbnail()) {

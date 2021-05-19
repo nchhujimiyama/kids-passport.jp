@@ -29,7 +29,7 @@ body.single-menu #bread_crumb, body.single-diary #bread_crumb {
 
 
 
-/* */
+/* single content header */
 #post_title_area .image_area {
     margin: 0 0 47px;
     position: relative;
@@ -52,6 +52,24 @@ body.single-menu #bread_crumb, body.single-diary #bread_crumb {
     #post_title_area .image_area {
         margin-bottom: 25px;
     }
+}
+
+
+/* menu archive */
+#news_list.menu a {
+    display: flex;
+}
+#news_list.menu .image_wrap {
+    height: auto;
+    padding-top: 50%;
+}
+#news_list.menu .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#news_list.menu .title_area {
+    height: auto;
 }
 
 
