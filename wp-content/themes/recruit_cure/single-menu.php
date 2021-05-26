@@ -17,14 +17,14 @@
 
    <?php
         // title_area ------------------------------------------------------------------------------------------------------------------------
-        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size3' );
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
         if( $options['single_blog_layout'] == 'type3'){
-          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size5' );
+          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
         }
         if( $side_content_layout == 'type3' ){
-          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size5' );
+          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
         } elseif( $side_content_layout == 'type1' || $side_content_layout == 'type2' ){
-          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'size3' );
+          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
         }
    ?>
    <div id="post_title_area">

@@ -82,17 +82,17 @@ function get_diary_menu_posts($atts) {
 
 
     $str = '<div id="top_diary_menu">
-        <div class="column">
-            <h3 class="cb_headline rich_font_type2">' . $diary_name . '</h3>
-            <h4 class="cb_catch rich_font_type3">' . $diary_catch . '</h4>
-            <div class="list">' . $diary . '</div>
-            <div class="link"><a href="' . get_post_type_archive_link('diary') . '">' . $diary_catch . '一覧</a></div>
-        </div>
         <div class="column menu">
             <h3 class="cb_headline rich_font_type2">' . $menu_name . '</h3>
             <h4 class="cb_catch rich_font_type3">' . $menu_catch . '</h4>
             <div class="list">' . $menu . '</div>
             <div class="link"><a href="' . get_post_type_archive_link('menu') . '">' . $menu_catch . '一覧</a></div>
+        </div>
+        <div class="column">
+            <h3 class="cb_headline rich_font_type2">' . $diary_name . '</h3>
+            <h4 class="cb_catch rich_font_type3">' . $diary_catch . '</h4>
+            <div class="list">' . $diary . '</div>
+            <div class="link"><a href="' . get_post_type_archive_link('diary') . '">' . $diary_catch . '一覧</a></div>
         </div>
     </div>
     <style>
