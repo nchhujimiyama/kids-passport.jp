@@ -342,15 +342,14 @@ get_header();
                   <div class="pb_googlemap clearfix">
                     <div id="dc_google_map<?php echo esc_attr($content_count); ?>" class="pb_googlemap_embed"></div>
                   </div><!-- END .pb_googlemap -->
-                  <?php $access_address = esc_attr($options['basic_access_address']); ?>
-                  <script>
-                    jQuery(function($) {
-                      $(window).load(function() {
-                        var address = "<?php echo html_entity_decode( $access_address ); ?>";
-                        console.log(address);
-                        initMap('dc_google_map<?php echo esc_attr($content_count); ?>', address, <?php echo esc_js( $access_saturation ); ?>, <?php echo esc_js( $use_custom_overlay ); ?>, '<?php if( $options['basic_gmap_custom_marker_type'] == 'type2' ) { echo esc_js( $marker_img ); }; ?>', '<?php echo esc_js( $marker_text ); ?>');
-                      });
-                    });
+                  <?php
+                  $access_address = mb_convert_encoding($options['basic_access_address'], 'HTML-ENTITIES', 'UTF-8');
+                  ?>
+                  <script type="text/javascript" charset="UTF-8">
+                    window.addEventListener('load', () => {
+                      const address = '<?= esc_js($access_address); ?>';
+                      initMap('dc_google_map<?= esc_attr($content_count); ?>', address, <?= esc_js( $access_saturation ); ?>, <?= esc_js( $use_custom_overlay ); ?>, '<?php if( $options['basic_gmap_custom_marker_type'] == 'type2' ) { echo esc_js( $marker_img ); }; ?>', '<?= esc_js( $marker_text ); ?>');
+                    })
                   </script>
                 </div><!-- END .access_google_map -->
               <?php }; ?>

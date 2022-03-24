@@ -82,17 +82,17 @@ function get_diary_menu_posts($atts) {
 
 
     $str = '<div id="top_diary_menu">
-        <div class="column menu">
-            <h3 class="cb_headline rich_font_type2">' . $menu_name . '</h3>
-            <h4 class="cb_catch rich_font_type3">' . $menu_catch . '</h4>
-            <div class="list">' . $menu . '</div>
-            <div class="link"><a href="' . get_post_type_archive_link('menu') . '">' . $menu_catch . '一覧</a></div>
-        </div>
         <div class="column">
             <h3 class="cb_headline rich_font_type2">' . $diary_name . '</h3>
             <h4 class="cb_catch rich_font_type3">' . $diary_catch . '</h4>
             <div class="list">' . $diary . '</div>
             <div class="link"><a href="' . get_post_type_archive_link('diary') . '">' . $diary_catch . '一覧</a></div>
+        </div>
+        <div class="column menu">
+            <h3 class="cb_headline rich_font_type2">' . $menu_name . '</h3>
+            <h4 class="cb_catch rich_font_type3">' . $menu_catch . '</h4>
+            <div class="list">' . $menu . '</div>
+            <div class="link"><a href="' . get_post_type_archive_link('menu') . '">' . $menu_catch . '一覧</a></div>
         </div>
     </div>
     <style>
@@ -204,6 +204,10 @@ function get_diary_menu_posts($atts) {
     }
 
     @media screen and (min-width: 1025px) {
+        #top_diary_menu .column {
+            padding-bottom: 46px;
+            position: relative;
+        }
         #top_diary_menu .menu .list {
             display: flex;
         }
@@ -228,6 +232,12 @@ function get_diary_menu_posts($atts) {
         #top_diary_menu .menu article .info {
             padding: 16px;
             border-left: 1px solid #ddd;
+        }
+        #top_diary_menu .link {
+            margin: 0;
+            position: absolute;
+            bottom: 0;
+            right: 0;
         }
     }
     </style>';
