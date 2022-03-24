@@ -79,8 +79,6 @@
         (empty(get_query_var('post_type')) && $options['show_blog_archive_sidebar'] && (is_archive() || is_home() || is_search()) ) ||
         (is_singular('news') && $options['show_news_single_sidebar']) ||
         (is_post_type_archive('news') && $options['show_news_archive_sidebar']) ||
-        (is_post_type_archive('offer') && $options['show_offer_archive_sidebar']) ||
-        (is_singular('offer') && $options['show_offer_archive_sidebar']) ||
         (is_singular('service') && $options['show_service_single_sidebar']) ||
         (is_post_type_archive('service') && $options['show_service_archive_sidebar']) ||
         (is_post_type_archive('faq') && $options['show_faq_archive_sidebar'])

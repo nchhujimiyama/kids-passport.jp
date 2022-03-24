@@ -180,23 +180,6 @@ $options = get_design_plus_option();
                <li class="last" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name"><?php the_title_attribute(); ?></span><meta itemprop="position" content="3"></li>
           </ul>
      <?php
-     // offer archive -----------------------
-     } elseif(is_post_type_archive('offer')) {
-     ?>
-          <ul class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
-               <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="home"><a itemprop="item" href="<?php echo esc_url(home_url('/')); ?>"><span itemprop="name"><?php _e('Home', 'tcd-w'); ?></span></a><meta itemprop="position" content="1"></li>
-               <li class="last" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name"><?php echo esc_html($options['offer_label']); ?></span><meta itemprop="position" content="2"></li>
-          </ul>
-     <?php
-     // offer single -----------------------
-     } elseif(is_singular('offer')) {
-     ?>
-          <ul class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
-               <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="home"><a itemprop="item" href="<?php echo esc_url(home_url('/')); ?>"><span itemprop="name"><?php _e('Home', 'tcd-w'); ?></span></a><meta itemprop="position" content="1"></li>
-               <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item" href="<?php echo esc_url(get_post_type_archive_link('offer')); ?>"><span itemprop="name"><?php echo esc_html($options['offer_label']); ?></span></a><meta itemprop="position" content="2"></li>
-               <li class="last" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name"><?php the_title_attribute(); ?></span><meta itemprop="position" content="3"></li>
-          </ul>
-     <?php
      // Search -----------------------
      } elseif(is_search()) {
      ?>

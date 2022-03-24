@@ -6,13 +6,6 @@ function theme_enqueue_styles() {
 
 // style ans script --------------------------------------------------------------------------------
 function add_my_styles() {
-    if( is_home() || is_front_page() ) {
-        wp_enqueue_style('chosen', 'https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css');
-        wp_enqueue_style('top-custom', get_stylesheet_directory_uri() . '/assets/css/custom-top.css');
-    }
-    if( is_post_type_archive('offer') ) wp_enqueue_style('offer-archive', get_stylesheet_directory_uri() . '/assets/css/offer-archive.css');
-    if( is_singular('offer') ) wp_enqueue_style('offer-single', get_stylesheet_directory_uri() . '/assets/css/offer-single.css');
-
     $options = get_design_plus_option();
     $interview_slug = $options['interview_slug'] ? sanitize_title( $options['interview_slug'] ) : 'interview';
     $review_slug = $options['review_slug'] ? sanitize_title( $options['review_slug'] ) : 'review';
@@ -23,50 +16,15 @@ function add_my_styles() {
 add_action('wp_enqueue_scripts', 'add_my_styles');
 
 function add_my_scripts() {
-    if ( is_home() || is_front_page() ) {
-        wp_enqueue_script('chosen', 'https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js');
-        wp_enqueue_script('offer', get_stylesheet_directory_uri() . '/assets/js/top.js');
-    }
-    if ( is_post_type_archive('offer') ) {
-        wp_enqueue_script('underscore', 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.10.2/underscore-min.js');
-        wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.6.11');
-        wp_enqueue_script('paginate', 'https://cdnjs.cloudflare.com/ajax/libs/vue-paginate/3.6.0/vue-paginate.js');
-        wp_enqueue_script('scrollto', 'https://cdn.jsdelivr.net/npm/vue-scrollto');
-        wp_enqueue_script('axios', 'https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js');
-        wp_enqueue_script('index', get_stylesheet_directory_uri() . '/assets/js/offer-archive.js');
-    }
-
     if( is_post_type_archive('interview') ) {
         wp_enqueue_script('interview-filter', get_stylesheet_directory_uri() . '/assets/js/custom-archive.js', array(), false, true);
     }
 }
 add_action('wp_footer', 'add_my_scripts');
 
-// create post type --------------------------------------------------------------------------------
-get_template_part( 'lib/func', 'create_posttype' );
-
-
-// recruit field --------------------------------------------------------------------------------
-get_template_part( 'lib/func', 'offer_field' );
-get_template_part( 'lib/func', 'offer_loop_field' );
-get_template_part( 'lib/func', 'custom_date' );
-
-// rest api --------------------------------------------------------------------------------
-get_template_part( 'lib/func', 'rest_api' );
-get_template_part( 'lib/func', 'rest_api_taxonomies' );
-get_template_part( 'lib/func', 'rest_api_count' );
-
 
 // company settings page --------------------------------------------------------------------------------
 get_template_part( 'lib/func', 'company_fields' );
-
-
-// OFFER for top page --------------------------------------------------------------------------------
-get_template_part( 'lib/func', 'top_offer' );
-
-
-// テーマオプション --------------------------------------------------------------------------------
-require get_stylesheet_directory() . '/admin/inc/offer.php';
 
 
 // hook wp_head --------------------------------------------------------------------------------
@@ -95,14 +53,6 @@ function setPostViews($post_id) {
 }
 
 
-// clear gutenberg --------------------------------------------------------------------------------
-// add_filter( 'use_block_editor_for_post_type', 'disable_block_editor', 10, 2 );
-// function disable_block_editor( $use_block_editor, $post_type ) {
-//     if ( $post_type === 'offer' ) return false;
-//     return $use_block_editor;
-// }
-
-
 // format wp editor --------------------------------------------------------------------------------
 function format_wpeditor( $content ) {
     $content = apply_filters( 'the_content', $content );
@@ -110,72 +60,6 @@ function format_wpeditor( $content ) {
 
     return $content;
 }
-
-// format treatment status --------------------------------------------------------------------------------
-function format_treatment_status( $content ) {
-    $str = '';
-    switch( $content ) {
-        case 'FULL_TIME':
-            $str = '正社員';
-            break;
-        case 'PART_TIME':
-            $str = 'パート・アルバイト';
-            break;
-        case 'CONTRACTOR':
-            $str = '契約社員';
-            break;
-        case 'TEMPORARY':
-            $str = '一時的な雇用';
-            break;
-        case 'INTERN':
-            $str = 'インターンシップ';
-            break;
-        case 'VOLUNTEER':
-            $str = 'ボランティア';
-            break;
-        case 'PER_DIEM':
-            $str = '日雇い';
-            break;
-        case 'OTHER':
-            $str = 'その他';
-            break;
-    }
-
-    return $str;
-}
-
-// format salary unit --------------------------------------------------------------------------------
-function format_salary_unit( $content ) {
-    $str = '';
-    switch( $content ) {
-        case 'HOUR':
-            $str = '時給';
-            break;
-        case 'DAY':
-            $str = '日給';
-            break;
-        case 'WEEK':
-            $str = '週給';
-            break;
-        case 'MONTH':
-            $str = '月給';
-            break;
-        case 'YEAR':
-            $str = '年給';
-            break;
-    }
-
-    return $str;
-}
-
-
-// redirect 404 offer --------------------------------------------------------------------------------
-get_template_part( 'lib/redirect', 'offer' );
-
-
-// custom offer permalinks --------------------------------------------------------------------------------
-get_template_part( 'lib/func', 'custom_permalinks' );
-
 
 // custom css in media library --------------------------------------------------------------------------------
 function my_admin_style() {
@@ -241,7 +125,6 @@ require get_stylesheet_directory() . '/lib/custom_post/review.php';
 
 require get_stylesheet_directory() . '/lib/custom_post/marketing.php';
 
-require get_stylesheet_directory() . '/lib/recruit/create-fields.php';
 require get_stylesheet_directory() . '/lib/recruit/create-division_fields.php';
 
 require get_stylesheet_directory() . '/lib/top/shortcode-interview.php';
